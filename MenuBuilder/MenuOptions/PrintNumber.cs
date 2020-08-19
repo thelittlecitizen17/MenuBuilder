@@ -18,9 +18,24 @@ namespace MenuBuilder.MenuOptions
         }
         private int getValues()
         {
-            Console.WriteLine("\nPlease enter the number you want to print\n");
-            int number = Int32.Parse(Console.ReadLine());
-            return number;
+            bool canParse;
+
+            while (true)
+            {
+                Console.WriteLine("\nPlease enter the number you want to print\n");
+                var userNumber = Console.ReadLine();
+                IntValidator validator = new IntValidator();
+                canParse = validator.Validate(userNumber);
+
+                if (canParse)
+                {
+                    return Int32.Parse(userNumber);
+                }
+                else
+                {
+                    Console.WriteLine("\nYou entered invalid number! please try again\n");
+                }
+            }
         }
         private void print(int number)
         {

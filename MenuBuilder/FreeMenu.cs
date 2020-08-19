@@ -31,15 +31,17 @@ namespace MenuBuilder
             {
                 var choice = menuPrinter.PrintOUt(Options);
 
-                bool ValidationFlag = validator.ChoiceValidator(choice);
-
-                if (DictOptions.ContainsKey(choice) && choice != "exit")
+                bool validationFlag = validator.ChoiceValidator(choice);
+                if (validationFlag)
                 {
-                    DictOptions[choice].RunOption();
-                }
-                else
-                {
-                    menuFlag = false;
+                    if (choice != "exit")
+                    {
+                        DictOptions[choice].RunOption();
+                    }
+                    else
+                    {
+                        menuFlag = false;
+                    }
                 }
             }
 

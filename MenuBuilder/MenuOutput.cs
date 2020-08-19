@@ -14,7 +14,7 @@ namespace MenuBuilder
         }
         public string PrintOUt(List<string> options)
         {
-            Console.WriteLine($"Welcome to {_menuName} \n");
+            Console.WriteLine($"\nWelcome to {_menuName} menu \n");
             string choice = "1";
 
 
